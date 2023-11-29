@@ -1,0 +1,17 @@
+{
+  "name": "takehome",
+  "scripts": {
+    "start": "node scripts/run.mjs",
+    "seed": "ts-node --transpileOnly scripts/seed.ts",
+    "seed-prod": "ts-node --transpileOnly scripts/seed.ts --full",
+    "bundle": "node scripts/bundle.mjs",
+    "prepare-submission": "node scripts/bundle.mjs"
+  },
+  "workspaces": [
+    "packages/frontend",
+    "packages/backend"
+  ],
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

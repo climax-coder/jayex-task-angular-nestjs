@@ -1,0 +1,20 @@
+.lane-container {
+  flex: 1;
+  min-height: 100%;
+  background-color: #e6ebf2;
+}
+
+.lane-title {
+  border-radius: 5px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  margin: 0;
+  padding: 20px 15px;
+  background-color: #e6ebf2;
+}
+
+.ticket-count {
+  color: grey;
+  font-size: 1em;
+}

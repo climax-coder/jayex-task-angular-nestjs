@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Create Ticket</h1>
+<form [formGroup]="ticketForm" (ngSubmit)="createTicket()">
+  <div mat-dialog-content class="dialog-content">
+    <mat-form-field>
+      <input matInput placeholder="Title" formControlName="title">
+      <mat-error *ngIf="ticketForm.get('title')?.invalid && ticketForm.get('title')?.touched">
+        Title is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Select Tags" multiple formControlName="tags">
+        <mat-option *ngFor="let tag of allTags" [value]="tag">{{tag.name}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="ticketForm.get('tags')?.invalid && ticketForm.get('tags')?.touched">
+        Tags are required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="startDatePicker" placeholder="Start Date" formControlName="startDate" [min]="minStartDate">
+      <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #startDatePicker></mat-datepicker>
+      <mat-error *ngIf="ticketForm.get('startDate')?.invalid && ticketForm.get('startDate')?.touched">
+        Start date is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="endDatePicker" placeholder="End Date" formControlName="endDate" [min]="ticketForm.get('startDate')?.value">
+      <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #endDatePicker></mat-datepicker>
+      <mat-error *ngIf="ticketForm.get('endDate')?.invalid && ticketForm.get('endDate')?.touched">
+        End date is required
+      </mat-error>
+      </mat-form-field>
+      <div mat-dialog-actions class="button-group">
+        <button mat-stroked-button color="warn" (click)="onNoClick()">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" cdkFocusInitial>Create</button>
+      </div>
+    </div>
+  </form>
+  

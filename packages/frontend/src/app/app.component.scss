@@ -1,0 +1,22 @@
+.container {
+  padding: 10px;
+}
+
+.kanban-board-container {
+  height: calc(100vh - 130px);
+  overflow: auto;
+  margin-top: 10px;
+}
+
+.kanban-board {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  min-height: calc(100vh - 130px);
+}
+
+.lane-board {
+  flex: 1;
+  background-color: #e6ebf2;
+  min-height: 250px;
+}

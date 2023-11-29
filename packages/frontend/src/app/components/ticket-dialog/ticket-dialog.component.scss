@@ -1,0 +1,21 @@
+.dialog-content .mat-mdc-form-field{
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog-content .mat-form-field .mat-mdc-dialog-content {
+  display: flex!important;
+  flex-direction: column;
+}
+
+.mat-form-field.mat-appearance-fill .mat-form-field-flex {
+  background-color: #f0f0f0;
+}
+
+.mat-form-field.mat-appearance-fill .mat-form-field-underline::before {
+  background-color: #3f51b5;
+}
+
+.button-group {
+  justify-content: flex-end;
+}

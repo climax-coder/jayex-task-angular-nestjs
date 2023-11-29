@@ -1,0 +1,26 @@
+<div
+  cdkDropList
+  [id]="list._id"
+  [cdkDropListData]="tickets"
+  [cdkDropListConnectedTo]="connectedTo"
+  (cdkDropListDropped)="drop($event)"
+  class="lane-container"
+>
+  <h3 
+    class="lane-title" 
+    [ngStyle]="{ 'border-top': '5px solid ' + color }"
+  >
+    {{ list.name | capitalize }} 
+    <span class="ticket-count">{{ tickets.length > 0 ? '-' + tickets.length : '' }}</span>
+  </h3>
+
+  <app-ticket
+    *ngFor="let ticket of tickets"
+    [ticket]="ticket"
+    [color]="color"
+    [isLastLane]="isLastLane"
+    (ticketDeleted)="ticketDeleted.emit($event)"
+    cdkDrag
+    cdkDragSortingDisabled
+  ></app-ticket>
+</div>

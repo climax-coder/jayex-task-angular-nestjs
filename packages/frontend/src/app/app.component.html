@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <button mat-raised-button color="primary" (click)="openDialog()">Create Ticket</button>
+  <div class="kanban-board-container">
+     <div class="kanban-board" cdkDropListGroup>
+    <app-lane 
+      class="lane-board"
+      *ngFor="let list of lists; let i = index" 
+      [list]="list" 
+      [isLastLane]="i === lists.length - 1" 
+      [color]="colors[i]" 
+      [connectedTo]="getConnectedListIds(list._id)"
+      [tickets]="getTickets(list._id)"
+      (ticketDeleted)="handleTicketDeleted($event)"
+    ></app-lane>
+  </div>
+  </div>
+ 
+</div>
+
+<router-outlet></router-outlet>

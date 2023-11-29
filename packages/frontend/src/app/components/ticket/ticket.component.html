@@ -1,0 +1,32 @@
+<mat-card
+  class="ticket-card"
+  [ngStyle]="{ 'border-top': '5px solid ' + color }"
+  cdkDrag
+  [cdkDragData]="ticket"
+  >
+  <mat-card-header>
+    <mat-card-title>{{ ticket.title | uppercase }}</mat-card-title>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <mat-chip-listbox class="ticket-tags">
+      <ng-container *ngFor="let tag of ticket.tags; let i = index">
+        <mat-chip *ngIf="i < 2" class="mat-chip">{{ tag.name }}</mat-chip>
+        <mat-chip *ngIf="i === 2" class="mat-chip" [matTooltip]="getRemainingTags(ticket.tags)">
+          +{{ticket.tags.length - 2}}
+        </mat-chip>
+      </ng-container>      
+    </mat-chip-listbox>
+    
+    <div class="text-right">
+      <p>Start: {{ ticket.startDate | date }}</p>
+      <p>End: {{ ticket.endDate | date }}</p>
+    </div>  
+  </mat-card-content>
+  <div class="ticket-placeholder" *cdkDragPlaceholder></div>
+  <div class="delete-button">
+    <button mat-icon-button *ngIf="isLastLane" (click)="removeTicket(ticket)" aria-label="Delete ticket">
+      <mat-icon class="delete-icon">delete</mat-icon>
+    </button>
+  </div>
+</mat-card>

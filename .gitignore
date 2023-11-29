@@ -1,0 +1,16 @@
+.idea/
+.vscode/
+*.iml
+
+node_modules/
+
+*.db
+/*.bundle
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
