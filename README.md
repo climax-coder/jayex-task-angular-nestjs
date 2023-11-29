@@ -18,8 +18,8 @@ Requirements
 
 ### Used tech skills
 
-- Frontend Angular
-- Backend API Node.js
+- Frontend Angular CLI
+- Backend API Nest CLI
 - Mongo DB
 
 ### How to run the project
